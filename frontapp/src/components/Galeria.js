@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import '../assets/css/style1.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import MecanicoG1_6 from '../assets/img/G1.6 Mec.gif';
 import MecanicoG2_5 from '../assets/img/G2.5 Mec.gif';
 import MecanicoG4 from '../assets/img/G4 Mec.gif';
@@ -12,7 +13,6 @@ import CloseIcon from '../assets/iconos/bx-x.svg';
 import Image1 from '../assets/img/G1.6 Mec.gif';
 
 const Galeria = () => {
-  const hamburgerRef = useRef(null);
   const imagenesRef = useRef([]);
   const imagenesLightRef = useRef(null);
   const contenedorLightRef = useRef(null);
@@ -32,15 +32,11 @@ const Galeria = () => {
     const imagenes = imagenesRef.current;
     const imagenesLight = imagenesLightRef.current;
     const contenedorLight = contenedorLightRef.current;
-    const hamburger1 = hamburgerRef.current;
 
     const aparecerImagen = (imagen) => {
       imagenesLight.src = imagen;
-      contenedorLight.classList.toggle('show');
-      imagenesLight.classList.toggle('showImage');
-      if (hamburger1) {
-        hamburger1.style.opacity = '0';
-      }
+      contenedorLight.classList.add('show');
+      imagenesLight.classList.add('showImage');
     };
 
     imagenes.forEach((imagen) => {
@@ -52,13 +48,10 @@ const Galeria = () => {
     });
 
     const handleClickOutside = (e) => {
-      if (e.target !== imagenesLight) {
-        contenedorLight.classList.toggle('show');
-        imagenesLight.classList.toggle('showImage');
-        if (hamburger1) {
-          hamburger1.style.opacity = '1';
+      if (e.target === contenedorLight || e.target === imagenesLight) {
+        contenedorLight.classList.remove('show');
+        imagenesLight.classList.remove('showImage');
         }
-      }
     };
 
     contenedorLight.addEventListener('click', handleClickOutside);
@@ -109,7 +102,10 @@ const Galeria = () => {
           </div>
         </section>
         <section ref={contenedorLightRef} className="image-light">
-          <img src={CloseIcon} className="close1" alt="Icono de cierre" />
+          <img src={CloseIcon} className="close1" alt="Icono de cierre" onClick={() => {
+            contenedorLightRef.current.classList.remove('show');
+            imagenesLightRef.current.classList.remove('showImage');
+          }}/>
           <img ref={imagenesLightRef} className="agregar-imagen" src={Image1} alt="imagen de rod" />
         </section>
       </main>

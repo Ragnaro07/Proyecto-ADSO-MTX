@@ -12,6 +12,7 @@ import EditProduct from './components/EditProduct';
 import ProductsTable from './components/ProductsTable';
 import Editar from './components/EditTable';
 import './scss/custom.css';
+import './assets/css/style1.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {

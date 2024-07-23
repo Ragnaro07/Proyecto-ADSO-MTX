@@ -33,9 +33,9 @@ const ShowProducts = () => {
 
   return (
     <div>
-      <div className='d-grid gap-2'>
-        <Link to="/create" className='btn btn-success btn-lg mt-2 mb-2 text-white'>Create</Link>
-        <Link to="/TecnologiasIot" className='btn btn-primary btn-lg mt-2 mb-2'>View Table</Link>
+      <div className='d-grid gap-2 w-75 mx-auto'>
+        <Link to="/create" className='btn btn-success btn-lg mt-2 mb-2 text-white'>Ingresar producto medición LoRaWAN</Link>
+        <Link to="/TecnologiasIot" className='btn btn-primary btn-lg mt-2 mb-2'>Ver tabla LoRaWAN</Link>
       </div>
       <h2>Manage Products</h2>
       <p>Here you can manage products (create, edit, delete).</p>

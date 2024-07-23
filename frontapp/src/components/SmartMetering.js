@@ -1,6 +1,8 @@
 import React from 'react';
 import Navbar from './Navbar';
 import '../assets/css/style1.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const SmartMetering = () => {
   return (
@@ -11,12 +13,14 @@ const SmartMetering = () => {
             <h1>Protocolos de comunicación</h1>
             <br />
             <br />
-            <p>Las tecnologías IoT (Internet of Things) através de sus redes de área amplia y baja potencia(LPWAN), en este caso, Sigfox,LoraWANy CAT-M1, han hecho posible la implementación de sistemas de medición inteligente que atacan problemáticas por demoras en la toma de decisiones y falta de información entiempo real.
+            <p>Las tecnologías IoT (Internet of Things) através de sus redes de área amplia y baja potencia(LPWAN), en este caso, Sigfox, LoraWAN CAT-M1 y Cat1, han hecho posible la implementación de sistemas de medición inteligente que atacan problemáticas por demoras en la toma de decisiones y falta de información entiempo real.
 
-            Dentrodeestos sistemas de medición inteligente seemplean medidoresconla capacidad detransmitir de forma remota su estado de funcionamiento,impactandofavorablemente la disminución de perdidas no técnicas asociadas a fraudes detipo común.</p>
+            Dentro de estos sistemas de medición inteligente se emplean medidores con la capacidad de transmitir de forma remota su estado de funcionamiento,impactando favorablemente la disminución de perdidas no técnicas asociadas a fraudes detipo común.</p>
         </div>
+       
     </header>
     <main>
+        
         <section className="contenedorAMR" id="medicionAMR">  
             <h2 className="subtituloAmr">(AMR) Automated Meter Reading</h2>
                 <div className="definicionamr"><br />

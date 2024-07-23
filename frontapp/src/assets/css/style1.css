@@ -6,6 +6,7 @@
 body {
     font-family: 'Palanquin', sans-serif;
     font-family: 'Play', sans-serif;
+    background-color: #f0f0f0; /* Cambia este color al que desees para el fondo de la página */
 }
 
 :root {
@@ -20,153 +21,150 @@ body {
     margin-top: 0.5%;
 }
 
-.menuNavegacion .close {
-    color: rgba(65, 62, 124, 0.129);
-}
+/* Cambiar el color del texto en los enlaces del navbar */
+.navbar-nav .nav-item .nav-link {
+    color: rgb(255, 255, 255); /* Cambia este color al que desees para los enlaces normales */
+  }
+  
+  /* Cambiar el color del texto en el enlace al pasar el cursor */
+.navbar-nav .nav-item .nav-link:hover {
+    color: #acb698; /* Cambia este color al que desees para el estado hover */
+    background-color: rgba(15, 1, 1, 0.579); /* Cambia el fondo al pasar el cursor si lo deseas */
+    border-radius: 25px; /* Ajusta este valor para hacer el fondo más ovalado */
+    padding: 5px 15px; /* Ajusta el padding para mejorar el aspecto ovalado */
+  }
+  
+  /* Cambiar el color del texto en el enlace activo */
+.navbar-nav .nav-item .nav-link.active {
+    color: #058deffc; /* Cambia este color al que desees para el enlace activo */
+    background-color: rgba(4, 4, 4, 0.379); /* Cambia el fondo al estar activo si lo deseas */
+    border-radius: 25px; /* Ajusta este valor para hacer el fondo más ovalado */
+    padding: 5px 15px; /* Ajusta el padding para mejorar el aspecto ovalado */
+  }
+  
+  /* Cambiar el color del texto en el enlace enfocado */
+.navbar-nav .nav-item .nav-link:focus {
+    color: #4dff00; /* Cambia este color al que desees para el estado enfocado */
+    background-color: rgba(255, 255, 255, 0.3); /* Cambia el fondo al enfocar si lo deseas */
+  }
+  
+  /* Cambiar el color del texto en el menú desplegable */
+.dropdown-menu .dropdown-item {
+    color: rgb(27, 25, 25); /* Cambia este color al que desees para los elementos del menú desplegable */
+  }
+  
+  /* Cambiar el color del texto en el elemento del menú desplegable al pasar el cursor */
+.dropdown-menu .dropdown-item:hover {
+    color: #007bff; /* Cambia este color al que desees para el estado hover en el menú desplegable */
+    background-color: rgba(59, 40, 40, 0.134); /* Cambia el fondo al pasar el cursor en el menú desplegable */
+  }
 
-.menuNavegacion ul {
-    float: right;
-    margin-right: 10px;
-}
-
-.menuNavegacion ul li {
-    display: inline-block;
-    margin: 0 10px 10px 10px;
-}
-
-.menuNavegacion ul li a {
-    font-size: 18px;
-    padding: 8px 6px;
-    text-decoration: none;
-    color: rgb(15, 14, 63);
-}
-
-.menuNavegacion ul li a:hover {
-    color: #F7961E;
-}
-
-.menuNavegacion {
-    width: auto;
-    height: 55px;
-    background: linear-gradient(to bottom, rgba(8, 2, 34, 0.952), rgb(229, 229, 237) 33%, rgb(14, 9, 73) 90%);
-}
-
-.menu ul {
-    list-style-type: none;
-}
-
-.menu ul li {
-    display: inline-block;
-    margin: 0 10px;
-}
-
-.menu ul li a {
-    text-decoration: none;
-    color: rgb(15, 14, 63);
-    padding: 8px 6px;
-}
-
-.menu ul li a:hover {
-    color: #F7961E;
-}
-
-.menu ul li ul {
-    display: none;
-    position: absolute;
-    background: #5d566e99;
-    padding: 10px;
-    margin-top: 10px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-
-.menu ul li:hover ul {
+  /* Mostrar el dropdown automáticamente al pasar el cursor */
+.navbar-nav .nav-item.dropdown:hover .dropdown-menu {
     display: block;
-}
+    margin-top: 0; /* Ajusta el margen si es necesario */
+  }
+  
+  /* Ajustes adicionales para los dropdown */
+.navbar-nav .dropdown-menu {
+    background-color: #343a4066; /* Color de fondo del dropdown */
+    border: none; /* Eliminar borde */
+    border-radius: 0; /* Eliminar el radio del borde */
+    margin-top: 0; /* Eliminar margen superior */
+  }
+  
+  /* Color del texto de los elementos del dropdown */
+.navbar-nav .dropdown-item {
+    color: #131313; /* Cambia este color según tus necesidades */
+  }
+  
+  /* Color del texto de los elementos del dropdown al pasar el cursor */
+.navbar-nav .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Cambia el color de fondo al pasar el cursor */
+    color: #007bff; /* Cambia este color según tus necesidades */
+  }
+  
+.transparent-navbar {
+    background-color: rgba(11, 8, 66, 0.5); /* Azul primario con 50% de transparencia */
+    z-index: 2; /* Coloca el navbar en una capa superior */
+  }
 
-#sliding_menu {
-    transition: transform 0.3s ease;
-}
-
-#sliding_menu.open {
-    transform: translateX(0);
-}
-
-.close {
-    cursor: pointer;
-}
-
-
-.submenu, .submenu2, .submenu3 {
-    display: none;
-    position: absolute;
-    width: 190px;
-    line-height: 100%;
-    margin-top: 10%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: #5d566e99;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.submenu2, .submenu3 {
-    margin-left: -70px;
-}
-
-.banner {
+.banner-container {
     width: 100%;
     height: 100vh;
+    overflow: hidden;
     background: no-repeat center/cover;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: center;
-    filter: brightness(0.2);
     left: 0;
     top: 0;
     z-index: 1;
 }
 
+.banner-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 120%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    filter: brightness(0.6);
+    z-index: -1;
+  }
+
 .texto_banner {
     position: absolute;
-    top: 65%;
+    top: 75%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 100px;
     min-width: 100%;
-    min-height: 30%;
-    border-radius: 0px;
+    min-height: 70%;
 }
 
-.texto_banner p,
 .texto_banner h1 {
-    color: white;
+    color: rgb(245, 244, 251);
     margin: 0;
-    text-align: left;
+    text-align: center;
 }
 
 .texto_banner h1 {
-    font-size: 48px;
+    font-size: 98px;
 }
 
-.texto_banner p {
-    font-size: 28px;
-    text-align: justify;
-}
 
 .titulosm {
     margin: 3%;
     text-align: left;
 }
 
+/* Estilos para el contenedor principal con un color de fondo */
+.contenedorSM {
+    background-color: #123456; /* Reemplaza con el color que desees */
+    color: #ffffff; /* Cambia el color del texto si es necesario para mejor legibilidad */
+  }
+
+  .contenedorAMR, .contenedorAMI {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para mejor legibilidad */
+    padding: 20px;
+    border-radius: 10px; /* Bordes redondeados */
+    color: #ffffff; /* Cambia el color del texto si es necesario para mejor legibilidad */
+  }
+    
 .contenedorSM, .contenedorAMR, .contenedorAMI, .contenedorlorawan, .contenedorplataforma, .contenedorsimu, .contenedor-producto {
     padding: 10px 50px;
     margin: 10px 20px;
     text-align: justify;
 }
 
-h1, .subtituloAmr, .n-medicionAmr, .subtituloAmi, .n-medicionAmi, .subtitulolora, h2, h3 {
-    color: #229191;
+h1, h3 {
+    color: #2a23a7;
+}
+
+h2 {
+    color: rgb(18, 114, 55);
 }
 
 .banner1 {
@@ -266,131 +264,4 @@ h1, .subtituloAmr, .n-medicionAmr, .subtituloAmi, .n-medicionAmi, .subtitulolora
     height: 3px;
     margin: 5px;
     background: #333;
-}
-
-
-/* Responsiveness */
-@media(max-width: 880px) {
-    .hamburger {
-      display: block;
-    }
-
-    .hamburger span {
-        margin-bottom: 2px;
-        background-color: rgb(23, 7, 94);
-        display: block;
-        height: 4px;
-    }
-
-    .menuNavegacion .hamburger :hover {
-        color: #F7961E;
-    }
-
-    .hamburger span {
-        margin-left: 20px;
-        cursor: pointer;
-    }
-
-    .logo, .logo img {
-        margin-left: 600px;
-        width: 150px;
-        margin-top: 0.1px;
-    }
-
-    .menuNavegacion {
-        position: relative;
-    }
-
-    .menu ul {
-        position: fixed;
-        top: 0px;
-        left: -100%;
-        width: 200px;
-        height: 100%;
-        background-color: rgba(212, 216, 217, 0.989);
-        transition: left 0.3s ease;
-        padding-top: 60px;
-        z-index: 1;
-    }
-
-    .menu ul.open {
-        left: 0;
-    }
-
-    .menu ul li {
-        display: block;
-        margin: 10px 0;
-    }
-
-    .menuNavegacion ul li {
-        display: block;
-        float: none;
-    }
-
-    .menuNavegacion ul li a {
-        font-size: 14px;
-        padding: 5px 30px;
-    }
-
-    .close {
-        display: inline-block;
-        position: relative;
-        width: 30px;
-        left: 20px;
-        top: 50%;
-        color: rgb(36, 22, 19);
-        font-size: 24px;
-        cursor: pointer;
-    }
-
-    .menuNavegacion ul li span:hover {
-        color: #F7961E;
-    }
-
-    .menuNavegacion .menu li {
-        display: inline-block;
-        position: relative;
-    }
-
-    .menuNavegacion .menu li:hover ul {
-        display: block;
-    }
-
-    .menuNavegacion .menu .submenu,
-    .menuNavegacion .menu .submenu2,
-    .menuNavegacion .menu .submenu3 {
-        display: none;
-        position: static;
-        width: 220px;
-        padding-left: 1px;
-        padding-top: 10px;
-        margin-top: 5px;
-        margin-left: -13px;
-        line-height: 10px;
-        background-color: #5d566e99;
-        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-        z-index: 1;
-    }
-
-    .texto_banner {
-        position: absolute;
-        top: 70%;
-        left: 50%;
-        padding: 30px;
-        min-width: 100%;
-        min-height: 20%;
-        border-radius: 0px;
-    }
-
-    .texto_banner h1 {
-        font-size: 38px;
-    }
-
-    .texto_banner p {
-        font-size: 18px;
-    }
-
-    .showImage {
-        transform: scale(1.2);
-    }
 }
