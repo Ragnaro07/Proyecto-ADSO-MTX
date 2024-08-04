@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/img/Logo MTX.gif';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/css/style1.css';
-import LogoutButton from './LogoutButton'; // Importa el componente LogoutButton
+import LogoutButton from './LogoutButton';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -63,7 +63,7 @@ const Navbar = () => {
           </ul>
           <ul className="navbar-nav">
             <li className="nav-item">
-              <LogoutButton /> {/* Incluye el botón de Logout */}
+              <LogoutButton />
             </li>
           </ul>
         </div>

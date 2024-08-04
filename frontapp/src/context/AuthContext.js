@@ -1,4 +1,3 @@
-// src/context/AuthContext.js
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext();
@@ -9,14 +8,23 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      // Supongamos que el token contiene el rol y otros detalles
-      // Decodifica el token aquí si es necesario
-      setUser({ role: 'admin' }); // Reemplaza esto con la lógica real
+      // Decodifica el token aquí si es necesario y obtén la información del usuario
+      setUser({ role: 'admin' }); // Reemplaza esto con la lógica real para obtener la información del usuario
     }
   }, []);
 
+  const login = (token) => {
+    localStorage.setItem('token', token);
+    setUser({ role: 'admin' }); // Reemplaza esto con la lógica real para obtener la información del usuario
+  };
+
+  const logout = () => {
+    localStorage.removeItem('token');
+    setUser(null);
+  };
+
   return (
-    <AuthContext.Provider value={{ user, setUser }}>
+    <AuthContext.Provider value={{ user, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
