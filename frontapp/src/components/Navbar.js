@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import logo from '../assets/img/logo.gif';
+import logo from '../assets/img/Logo MTX.gif';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/css/style1.css';
-
+import LogoutButton from './LogoutButton'; // Importa el componente LogoutButton
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -59,6 +59,11 @@ const Navbar = () => {
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/editar" onClick={closeMenu}>Editar</NavLink>
+            </li>
+          </ul>
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <LogoutButton /> {/* Incluye el botón de Logout */}
             </li>
           </ul>
         </div>

@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful;
 
 class Kernel extends HttpKernel
 {
@@ -20,7 +21,8 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
-        \App\Http\Middleware\CorsMiddleware::class, // Añadir el middleware de CORS aquí
+        \App\Http\Middleware\CorsMiddleware::class, // Asegúrate de que este middleware esté correctamente configurado
+        \App\Http\Middleware\CheckRole::class,
     ];
 
     /**
@@ -39,10 +41,27 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
+            EnsureFrontendRequestsAreStateful::class, // Middleware de Sanctum para API
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];
 
-    // Otros métodos y middlewares...
+    /**
+     * The application's middleware priority list.
+     *
+     * @var array<int, class-string|string>
+     */
+    protected $middlewarePriority = [
+        \Illuminate\Session\Middleware\StartSession::class,
+        \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+        \Illuminate\Cookie\Middleware\EncryptCookies::class,
+        \Illuminate\Pipeline\Pipeline::class,
+        \Illuminate\Routing\Middleware\SubstituteBindings::class,
+    ];
+
+    // Puedes eliminar esta línea si `EnsureFrontendRequestsAreStateful` ya está en `$middlewareGroups['api']`
+    // protected $routeMiddleware = [
+    //     'auth:sanctum' => \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+    // ];
 }
