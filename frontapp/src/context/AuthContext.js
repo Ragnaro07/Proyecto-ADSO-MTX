@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import axios from 'axios';
 
 const AuthContext = createContext();
 
@@ -8,19 +9,21 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      // Decodifica el token aquí si es necesario y obtén la información del usuario
-      setUser({ role: 'admin' }); // Reemplaza esto con la lógica real para obtener la información del usuario
+      setUser({ token });
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     }
   }, []);
 
   const login = (token) => {
     localStorage.setItem('token', token);
-    setUser({ role: 'admin' }); // Reemplaza esto con la lógica real para obtener la información del usuario
+    setUser({ token });
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
   };
 
   const logout = () => {
     localStorage.removeItem('token');
     setUser(null);
+    delete axios.defaults.headers.common['Authorization'];
   };
 
   return (
