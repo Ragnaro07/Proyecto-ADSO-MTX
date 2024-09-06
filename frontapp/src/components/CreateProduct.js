@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../scss/custom.css';
@@ -18,27 +18,37 @@ const CreateProduct = () => {
     const store = async (e) => {
         e.preventDefault();
         try {
-            await axios.post(endpoint, {tipo: tipo, modelo: modelo, precio: precio, indicacion: indicacion, observacion: observacion});
+            await axios.post(endpoint, {
+                tipo: tipo,
+                modelo: modelo,
+                precio: precio,
+                indicacion: indicacion,
+                observacion: observacion
+            });
             navigate('/tecnologiasIot');
         } catch (error) {
             console.error('Error al crear producto:', error);
         }
     };
 
+    const goBack = () => {
+        navigate(-1); // Redirige a la página anterior
+    };
+
     return (
         <div>
-            <h3>Create product</h3>
+            <h3>Create Product</h3>
             <form onSubmit={store}>
-            <div className="mb-3">
-                <label className='form-label custom-label' htmlFor='tipo'>Tipo</label>
-                <input
-                    id='tipo'
-                    value={tipo}
-                    onChange={(e) => setTipo(e.target.value)}
-                    type='text'
-                    className='form-control custom-input'
-                    placeholder='Ingrese el tipo de producto'
-                />
+                <div className="mb-3">
+                    <label className='form-label custom-label' htmlFor='tipo'>Tipo</label>
+                    <input
+                        id='tipo'
+                        value={tipo}
+                        onChange={(e) => setTipo(e.target.value)}
+                        type='text'
+                        className='form-control custom-input'
+                        placeholder='Ingrese el tipo de producto'
+                    />
                 </div>
 
                 <div className='mb-3'>
@@ -77,9 +87,11 @@ const CreateProduct = () => {
                         className='form-control'
                     />
                 </div>
-                <button type='submit' className='btn btn-primary'>Store</button>
+                <div className='d-flex justify-content-between'>
+                    <button type='submit' className='btn btn-primary'>Store</button>
+                    <button type='button' className='btn btn-secondary' onClick={goBack}>Back</button>
+                </div>
             </form>
-
         </div>
     );
 };

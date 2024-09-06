@@ -5,60 +5,56 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens; // Asegúrate de incluir este trait
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, HasApiTokens; // Añadir HasApiTokens aquí
+    use HasFactory, Notifiable, HasApiTokens;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+    // Los atributos que se pueden asignar masivamente
     protected $fillable = [
         'name',
         'email',
         'password',
-        'role', // Añadir 'role' a los atributos asignables
+        'role',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
+    // Los atributos que deben ocultarse para la serialización
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
+    // Los atributos que deben convertirse
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
 
-    // Definir constantes de roles
-    const ROLE_USER = 'user';
+    // Definir constantes para los roles
+    const ROLE_SUPERUSER = 'superuser';
     const ROLE_ADMIN = 'admin';
-    // Define más roles según sea necesario
+    const ROLE_CONSUMER = 'consumer';
+    const ROLE_BASIC_USER = 'basic_user';
 
-    // Método para verificar si el usuario es administrador
+    // Métodos para verificar roles
+    public function isSuperuser()
+    {
+        return $this->role === self::ROLE_SUPERUSER;
+    }
+
     public function isAdmin()
     {
         return $this->role === self::ROLE_ADMIN;
     }
 
-    // Método para verificar si el usuario es un usuario regular
-    public function isUser()
+    public function isConsumer()
     {
-        return $this->role === self::ROLE_USER;
+        return $this->role === self::ROLE_CONSUMER;
     }
 
-    // Agregar otros métodos útiles para roles aquí
+    public function isBasicUser()
+    {
+        return $this->role === self::ROLE_BASIC_USER;
+    }
 }

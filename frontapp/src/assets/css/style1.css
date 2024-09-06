@@ -21,74 +21,83 @@ body {
     margin-top: 0.5%;
 }
 
-/* Cambiar el color del texto en los enlaces del navbar */
-.navbar-nav .nav-item .nav-link {
-    color: rgb(255, 255, 255); /* Cambia este color al que desees para los enlaces normales */
-  }
-  
-  /* Cambiar el color del texto en el enlace al pasar el cursor */
-.navbar-nav .nav-item .nav-link:hover {
-    color: #acb698; /* Cambia este color al que desees para el estado hover */
-    background-color: rgba(15, 1, 1, 0.579); /* Cambia el fondo al pasar el cursor si lo deseas */
-    border-radius: 25px; /* Ajusta este valor para hacer el fondo más ovalado */
-    padding: 5px 15px; /* Ajusta el padding para mejorar el aspecto ovalado */
-  }
-  
-  /* Cambiar el color del texto en el enlace activo */
+/* Estilo general del navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0033cc; /* Azul Eléctrico */
+  padding: 10px 20px;
+  color: #ffffff; /* Blanco para el texto */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.499); /* Sombra más pronunciada */
+}
+
+/* Estilo de los enlaces en el navbar */
+.navbar a {
+  color: #ffffff; /* Blanco para los enlaces */
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 16px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar a:hover,
+.navbar a:focus {
+  color: #19E6D0; /* Azul Claro para el hover */
+  text-decoration:wavy;
+}
+
+/* Estilo de los enlaces activos */
 .navbar-nav .nav-item .nav-link.active {
-    color: #058deffc; /* Cambia este color al que desees para el enlace activo */
-    background-color: rgba(4, 4, 4, 0.379); /* Cambia el fondo al estar activo si lo deseas */
-    border-radius: 25px; /* Ajusta este valor para hacer el fondo más ovalado */
-    padding: 5px 15px; /* Ajusta el padding para mejorar el aspecto ovalado */
-  }
-  
-  /* Cambiar el color del texto en el enlace enfocado */
-.navbar-nav .nav-item .nav-link:focus {
-    color: #4dff00; /* Cambia este color al que desees para el estado enfocado */
-    background-color: rgba(255, 255, 255, 0.3); /* Cambia el fondo al enfocar si lo deseas */
-  }
-  
-  /* Cambiar el color del texto en el menú desplegable */
+  color: #ffffff; /* Blanco para el texto activo */
+  background-color: #0056b3; /* Azul Cobalto para el fondo activo */
+  border-radius: 20px;
+  padding: 8px 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+/* Estilo del menú desplegable */
+.nav-item .dropdown-menu {
+  background-color: #eaecf4; /* Azul Eléctrico */
+  border: none;
+  border-radius: 6px;
+  z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
+  box-shadow: 0 4px 8px rgba(79, 76, 76, 0.493); /* Sombra más pronunciada */
+  position: absolute; /* Asegura que el menú se posicione correctamente */
+  display: none; /* Oculta el menú por defecto */
+}
+
+/* Estilo de los ítems en el menú desplegable */
 .dropdown-menu .dropdown-item {
-    color: rgb(27, 25, 25); /* Cambia este color al que desees para los elementos del menú desplegable */
-  }
-  
-  /* Cambiar el color del texto en el elemento del menú desplegable al pasar el cursor */
-.dropdown-menu .dropdown-item:hover {
-    color: #007bff; /* Cambia este color al que desees para el estado hover en el menú desplegable */
-    background-color: rgba(59, 40, 40, 0.134); /* Cambia el fondo al pasar el cursor en el menú desplegable */
-  }
+  color: #474343dd; /* Gris Claro para el texto */
+  font-weight: bold; /* Haciendo el texto negrita */
+  padding: 5px 18px;
+  margin-left: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-decoration: none; /* Asegura que los ítems no tengan subrayado */
+  display:block; /* Asegura que los ítems ocupen el ancho completo */
+}
 
-  /* Mostrar el dropdown automáticamente al pasar el cursor */
-.navbar-nav .nav-item.dropdown:hover .dropdown-menu {
-    display: block;
-    margin-top: 0; /* Ajusta el margen si es necesario */
-  }
-  
-  /* Ajustes adicionales para los dropdown */
-.navbar-nav .dropdown-menu {
-    background-color: #343a4066; /* Color de fondo del dropdown */
-    border: none; /* Eliminar borde */
-    border-radius: 0; /* Eliminar el radio del borde */
-    margin-top: 0; /* Eliminar margen superior */
-  }
-  
-  /* Color del texto de los elementos del dropdown */
-.navbar-nav .dropdown-item {
-    color: #131313; /* Cambia este color según tus necesidades */
-  }
-  
-  /* Color del texto de los elementos del dropdown al pasar el cursor */
-.navbar-nav .dropdown-item:hover {
-    background-color: rgba(255, 255, 255, 0.3); /* Cambia el color de fondo al pasar el cursor */
-    color: #007bff; /* Cambia este color según tus necesidades */
-  }
-  
+/* Estilo de los ítems en el menú desplegable al pasar el cursor */
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item:focus {
+  color: #1576E6; /* Azul Eléctrico para el texto en hover */
+  background-color: rgba(0, 0, 51, 0.296); /* Gris más claro para el fondo en hover */
+}
+
+/* Mostrar el dropdown automáticamente al pasar el cursor */
+.navbar-nav .nav-item:hover .dropdown-menu {
+  display: block; /* Muestra el menú desplegable al pasar el cursor */
+  margin-top: 2px;
+}
+
+/* Navbar transparente */
 .transparent-navbar {
-    background-color: rgba(11, 8, 66, 0.5); /* Azul primario con 50% de transparencia */
-    z-index: 2; /* Coloca el navbar en una capa superior */
-  }
+  background-color: rgba(0, 51, 204, 0.8); /* Azul Eléctrico con 80% de opacidad */
+  z-index: 2;
+}
 
+/*Tecnologias IoT */
 .banner-container {
     width: 100%;
     height: 100vh;
@@ -104,7 +113,7 @@ body {
 
 .banner-video {
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     width: 100vw;
     height: 120vh;
@@ -114,16 +123,9 @@ body {
     z-index: -1;
   }
 
-@media (max-width: 768px) {
-    .banner-video {
-        width: 150vw;
-        height: 150vh;
-    }
-}
-
 .texto_banner {
     position: absolute;
-    top: 55%;
+    top: 65%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 100px;
@@ -141,56 +143,270 @@ body {
     font-size: 70px;
 }
 
-
 .titulosm {
     margin: 3%;
     text-align: left;
 }
 
 /* Estilos para el contenedor principal con un color de fondo */
-.contenedorSM {
-    background-color: #123456; /* Reemplaza con el color que desees */
-    color: #ffffff; /* Cambia el color del texto si es necesario para mejor legibilidad */
-  }
+.contenedorTec {
+    max-width: 100%; /* El contenedor ocupará el 100% del ancho disponible */
+    min-height: 950px; /* Tamaño mínimo en altura */
+    background-image: url('../img/FondoContenedorSM.jpg');
+    background-size: cover;  /* La imagen cubrirá el contenedor, adaptándose a su tamaño */
+    background-position: center center; /* Mantiene la imagen centrada en ambas direcciones */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    padding: 45px;
+    padding-top: 90px; /* Agrega espacio en la parte superior del contenedor */
+    margin: auto; /* Ajusta este valor dependiendo de la altura de tu navbar */
+    position: relative; /* Mantiene la posición relativa dentro del flujo normal del documento */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.792); /* Sombra suave alrededor de la imagen */
+}
 
-  .contenedorAMR, .contenedorAMI {
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para mejor legibilidad */
-    padding: 20px;
-    border-radius: 10px; /* Bordes redondeados */
-    color: #ffffff; /* Cambia el color del texto si es necesario para mejor legibilidad */
-  }
-    
-.contenedorSM, .contenedorAMR, .contenedorAMI, .contenedorlorawan, .contenedorplataforma, .contenedorsimu, .contenedor-producto {
+.contenedorTec::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 40, 49, 0.679); /* Cambia el color y la opacidad del overlay */
+  z-index: 1; /* Asegura que el overlay esté por encima de la imagen */
+}
+
+.contenedorTec > * {
+  position: relative;
+  z-index: 2; /* Asegura que el contenido esté por encima del overlay */
+}
+
+.contenedorTec img {
+    width: 100%;
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.contenedorTec p {
+    color: #fdfafa;
+    font-weight: bold;
+    font-size: 25px; /* Ajusta el tamaño del texto en los párrafos */
+    line-height: 1.5; /* Ajusta la altura de línea para mejorar la legibilidad */
+    margin-bottom: 20px; /* Espacio inferior entre los párrafos */
     padding: 10px 50px;
     margin: 10px 20px;
     text-align: justify;
 }
 
-h1, h3 {
-    color: #2a23a7;
+.contenedorTec h1 {
+  font-size: 60px; /* Ajusta el tamaño del texto del título */
+  font-weight: bold; /* Haciendo el texto negrita */
+  color: #ffffff; /* Cambia el color del texto si es necesario para mejor legibilidad */
+  margin-bottom: 40px; /* Espacio inferior debajo del título */
+  text-align: center; /* Alinea el texto al centro */
 }
 
-h2 {
-    color: rgb(18, 114, 55);
+/* Sección CAT-1 */
+.contenedorcat1 {
+  padding: 20px;
+  background-image: url('../img/FondoContenedornormal.jpg');
+  background-size: cover;  /* La imagen cubrirá el contenedor, adaptándose a su tamaño */
+  background-position: center center; /* Mantiene la imagen centrada en ambas direcciones */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  max-width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.792); /* Sombra suave alrededor de la imagen */
 }
 
-.banner1 {
-    padding: 10px 70px;
-    background: no-repeat center/cover;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    left: 0;
-    top: 0;
-    z-index: 1;
+.img-fluid {
+  width: 100%;   /* Asegura que la imagen no se desborde de su contenedor */
+  height: auto;      /* Mantiene la proporción de la imagen */
+  box-shadow: 0 4px 8px rgba(24, 169, 195, 0.873); /* Sombra suave alrededor de la imagen */
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+ 
 }
 
-.texto_banner1 {
-    text-align: justify;
-    padding: 10px 50px;
-    margin: 10px 20px;
+/* secciones generales */
+.texto_section {
+  font-size: 20px; /* Ajusta el tamaño del texto en los párrafos */
+  line-height: 1.5; /* Ajusta la altura de línea para mejorar la legibilidad */
+  padding: 40px 80px;
+  text-align: justify;
 }
+
+.titulo {
+  padding: 40px 80px;
+  text-align: center;
+  color: #3815E6;
+  font-weight: bold;
+}
+
+.subtitulo {
+  padding: 40px 80px;
+  text-align: justify;
+  color: #1576E6;
+  font-weight: bold;
+}
+
+.contenedorcat1 p {
+  color:rgb(245, 244, 251);
+  font-size: 20px; /* Ajusta el tamaño del texto en los párrafos */
+  line-height: 1.5; /* Ajusta la altura de línea para mejorar la legibilidad */
+  text-align: justify;
+  
+}
+
+.section li {
+  font-size: 20px; /* Ajusta el tamaño del texto en los párrafos */
+  line-height: 1.5; /* Ajusta la altura de línea para mejorar la legibilidad */
+  padding: 10px 50px;
+  text-align: justify;
+  color:#f0f0f0;
+}
+
+
+
+
+
+
+
+
+
+.contenedorAMR, .contenedorAMI {
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para mejor legibilidad */
+  padding: 20px;
+  border-radius: 10px; /* Bordes redondeados */
+  color: #ffffff; /* Cambia el color del texto si es necesario para mejor legibilidad */
+}
+
+
+  
+.contenedorAMR, .contenedorAMI, .contenedorlorawan, .contenedorplataforma, .contenedorsimu, .contenedor-producto {
+  padding: 10px 50px;
+  margin: 10px 20px;
+  text-align: justify;
+}
+
+
+
+
+
+
+.admin-panel {
+  padding: 20px;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-table th, .user-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.user-table th {
+  background-color: #f4f4f4;
+}
+
+.btn {
+  margin: 5px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  color: #212529;
+  border: none;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+
+/* src/components/UserForm.css */
+
+form {
+  max-width: 600px;
+  margin: auto;
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+form input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+form button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .gallery {
     background-color: #f2f2f2;
@@ -260,72 +476,101 @@ h2 {
     transform: translate(0);
 }
 
-.hamburger {
-    display: none;
-    cursor: pointer;
-}
-
-.hamburger span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px;
-    background: #333;
-}
 
 /* src/components/Login.css */
 .login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f5f5f5;
-  }
-  
-  .login-form {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
-  }
-  
-  .login-form h1 {
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    color: #333;
-  }
-  
-  .login-form div {
-    margin-bottom: 1rem;
-  }
-  
-  .login-form label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-  }
-  
-  .login-form input {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  .login-form button {
-    width: 100%;
-    padding: 0.8rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-  
-  .login-form button:hover {
-    background-color: #0056b3;
-  }
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden; /* Asegura que el video no se desborde */
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que el video cubra toda la pantalla */
+  z-index: -1; /* Pone el video detrás del contenido */
+}
+
+.login-form {
+  background: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente para el formulario */
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  z-index: 1; /* Asegura que el formulario esté por encima del video */
+}
+
+.login-form h1 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.login-form div {
+  margin-bottom: 1rem;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.login-form button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.login-form button:hover {
+  background-color: #0056b3;
+}
+
+/* src/components/LogoutButton.css */
+.logout-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #555778; /* Rojo para indicar salir */
+  border-radius: 50%;
+  width: 3rem; /* Ajusta el tamaño según sea necesario */
+  height: 3rem; /* Ajusta el tamaño según sea necesario */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1); /* Añadir sombra para mayor visibilidad */
+}
+
+.logout-icon-container:hover {
+  background-color: #2399c8; /* Rojo más oscuro al pasar el ratón */
+}
+
+.logout-icon {
+  color: white;
+  font-size: 1.5rem; /* Ajusta el tamaño del ícono */
+}
+
+.logout-icon-container:active {
+  transform: scale(0.95); /* Efecto de presión en el ícono */
+}
+
+
   

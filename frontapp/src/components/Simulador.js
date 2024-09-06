@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import ProConstruccion from '../assets/img/Proyecto_en_construccion.jpg';
 import '../assets/css/style1.css';
 
+
 const Simulador = () => {
   return (
     <div>

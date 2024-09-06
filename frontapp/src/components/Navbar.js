@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/img/Logo MTX.gif';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/css/style1.css';
 import LogoutButton from './LogoutButton';
 
@@ -30,17 +29,17 @@ const Navbar = () => {
             <li className="nav-item">
               <NavLink className="nav-link" to="/" onClick={closeMenu}>Inicio</NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/smartMetering" onClick={closeMenu}>Medición inteligente</NavLink>
-            </li>
             <li className="nav-item dropdown">
               <NavLink className="nav-link" to="/tecnologiasIot" onClick={closeMenu}>Tecnologías IoT</NavLink>
               <ul className="dropdown-menu" aria-labelledby="tecnologiasIotDropdown">
+                <li><Link className="dropdown-item" to="/tecnologiasIot" onClick={closeMenu}>CAT-1</Link></li>
+                <li><Link className="dropdown-item" to="/tecnologiasIot" onClick={closeMenu}>CAT-M1</Link></li>
                 <li><Link className="dropdown-item" to="/tecnologiasIot" onClick={closeMenu}>LoRaWAN</Link></li>
                 <li><Link className="dropdown-item" to="/tecnologiasIot" onClick={closeMenu}>Sigfox</Link></li>
-                <li><Link className="dropdown-item" to="/tecnologiasIot" onClick={closeMenu}>Cat-M1</Link></li>
-                <li><Link className="dropdown-item" to="/tecnologiasIot" onClick={closeMenu}>Cat.1</Link></li>
               </ul>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/smartMetering" onClick={closeMenu}>Medición inteligente</NavLink>
             </li>
             <li className="nav-item dropdown">
               <NavLink className="nav-link" to="/galeria" onClick={closeMenu}>Galería</NavLink>
@@ -58,7 +57,7 @@ const Navbar = () => {
               <NavLink className="nav-link" to="/simulador" onClick={closeMenu}>Simulador</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/editar" onClick={closeMenu}>Editar</NavLink>
+              <NavLink className="nav-link" to="/admin" onClick={closeMenu}>Admin</NavLink>
             </li>
           </ul>
           <ul className="navbar-nav">

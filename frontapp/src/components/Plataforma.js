@@ -3,6 +3,9 @@ import Navbar from './Navbar';
 import Plataforma1 from '../assets/img/plat1.png';
 import Plataforma2 from '../assets/img/plat2.png';
 import '../assets/css/style1.css';
+import UserForm from './UserForm';
+import CurrentUser from './CurrentUser';
+import Admin from './Admin';
 
 const Plataforma = () => {
   return (

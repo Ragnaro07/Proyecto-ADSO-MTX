@@ -9,13 +9,8 @@ const SmartMetering = () => {
     <div>
       <Navbar />
       <header>
-        <div className="contenedorSM">
-            <h1>Protocolos de comunicación</h1>
-            <br />
-            <br />
-            <p>Las tecnologías IoT (Internet of Things) através de sus redes de área amplia y baja potencia(LPWAN), en este caso, Sigfox, LoraWAN CAT-M1 y Cat1, han hecho posible la implementación de sistemas de medición inteligente que atacan problemáticas por demoras en la toma de decisiones y falta de información entiempo real.
-
-            Dentro de estos sistemas de medición inteligente se emplean medidores con la capacidad de transmitir de forma remota su estado de funcionamiento,impactando favorablemente la disminución de perdidas no técnicas asociadas a fraudes detipo común.</p>
+        <div className="contenedor">
+            
         </div>
        
     </header>

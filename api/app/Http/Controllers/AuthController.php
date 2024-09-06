@@ -9,6 +9,7 @@ use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
+    // Maneja el inicio de sesión de usuarios
     public function login(Request $request)
     {
         // Validar la solicitud
@@ -38,11 +39,11 @@ class AuthController extends Controller
                 'redirect' => '/'
             ], 200);
         } else {
-            // Si $user no es una instancia de User, retorna un error
             return response()->json(['message' => 'User instance is invalid'], 500);
         }
     }
 
+    // Maneja el cierre de sesión de usuarios
     public function logout(Request $request)
     {
         try {

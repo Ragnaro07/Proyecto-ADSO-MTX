@@ -13,40 +13,41 @@ import CreateProduct from './components/CreateProduct';
 import EditProduct from './components/EditProduct';
 import ProductsTable from './components/ProductsTable';
 import Editar from './components/EditTable';
-import Register from './components/Register';
-import { AuthProvider, useAuth } from './context/AuthContext';
-import PrivateRoute from './components/PrivateRoute';
+import UserForm from './components/UserForm';
+import UserList from './components/UserList';
+import { AuthProvider } from './context/AuthContext';
+//import PrivateRoute from './components/PrivateRoute'; // Eliminado para remover control de roles
 import './scss/custom.css';
 import './assets/css/style1.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const AppContent = () => {
-  const { user } = useAuth();
-
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<PrivateRoute><Home /></PrivateRoute>} />
+        {/* Rutas accesibles para todos los usuarios */}
+        <Route path="/" element={<Home />} />
         <Route path="/tecnologiasIot" element={<Tecnologias />} />
         <Route path="/smartMetering" element={<SmartMetering />} />
         <Route path="/galeria" element={<Galeria />} />
         <Route path="/simulador" element={<Simulador />} />
         <Route path="/plataforma" element={<Plataforma />} />
-        <Route path="/editar" element={<Editar />} />
         <Route path="/products" element={<ShowProducts />} />
         <Route path="/products-table" element={<ProductsTable />} />
+
+        {/* Rutas accesibles para todos los usuarios sin protección */}
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/users/create" element={<UserForm />} />
+        <Route path="/edit-user/:id" element={<UserForm />} />
+
         <Route path="/create" element={<CreateProduct />} />
         <Route path="/edit/:id" element={<EditProduct />} />
+        <Route path="/editar" element={<Editar />} />
+        <Route path="/users" element={<UserList />} />
+
+
+        {/* Ruta para el login */}
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route
-          path="/admin"
-          element={
-            <PrivateRoute roles={['admin']}>
-              <Admin />
-            </PrivateRoute>
-          }
-        />
       </Routes>
     </Router>
   );
@@ -55,7 +56,7 @@ const AppContent = () => {
 function App() {
   return (
     <AuthProvider>
-      <div className='App'>
+      <div className="App">
         <AppContent />
       </div>
     </AuthProvider>
